@@ -1,6 +1,6 @@
 # Vaultfire Ecosystem Map
 
-> How all the pieces fit together.
+> How all 38 repos fit together.
 
 Vaultfire is the trust and accountability layer for the AI agent economy — what HTTPS was to web security. This map shows how every repo in the ecosystem connects.
 
@@ -25,7 +25,8 @@ Vaultfire is the trust and accountability layer for the AI agent economy — wha
          │ vaultfire-base │    │ vaultfire-zk │     │ theloopbreaker   │
          │ vaultfire-aval │    │   -proofs    │     │     .com         │
          │ vaultfire-arb  │    │              │     │                  │
-         │ vaultfire-poly │    │ (RISC Zero)  │     │  (Agent Hub UI)  │
+         │ vaultfire-poly │    │ (RISC Zero)  │     │  (Agent Hub +    │
+         │               │    │              │     │   24 Live APIs)  │
          └──────┬─────────┘    └──────────────┘     └────────┬─────────┘
                 │                                            │
                 │              ┌──────────────┐              │
@@ -48,11 +49,15 @@ Vaultfire is the trust and accountability layer for the AI agent economy — wha
     │              │       │ vaultfire-xmtp│        │ vaultfire-crewai │
     └──────────────┘       └──────────────┘        │ vaultfire-openai │
                                                     │   -agents        │
-                                                    │ vaultfire-vercel │
-                                                    │   -ai            │
-                                                    │ vaultfire-mcp    │
-                                                    │   -server        │
-                                                    └──────────────────┘
+                  ┌──────────────┐                  │ vaultfire-vercel │
+                  │  PARTNER     │                  │   -ai            │
+                  │  TOOLING     │                  │ vaultfire-mcp    │
+                  │              │                  │   -server        │
+                  │ vaultfire-   │                  └──────────────────┘
+                  │  agentkit    │
+                  │ vaultfire-   │
+                  │  keyprotocol │
+                  └──────────────┘
 ```
 
 ---
@@ -73,18 +78,18 @@ Each chain has its own partner-facing reference with deployed addresses, verific
 
 | Repo | Chain | Contracts |
 |------|-------|-----------|
-| [vaultfire-base](https://github.com/Ghostkey316/vaultfire-base) | Base (8453) | 17 live contracts |
-| [vaultfire-avalanche](https://github.com/Ghostkey316/vaultfire-avalanche) | Avalanche C-Chain (43114) | 16 live contracts |
-| [vaultfire-arbitrum](https://github.com/Ghostkey316/vaultfire-arbitrum) | Arbitrum One (42161) | 17 live contracts |
-| [vaultfire-polygon](https://github.com/Ghostkey316/vaultfire-polygon) | Polygon PoS (137) | 17 live contracts |
+| [vaultfire-base](https://github.com/Ghostkey316/vaultfire-base) | Base (8453) | 26 live contracts |
+| [vaultfire-avalanche](https://github.com/Ghostkey316/vaultfire-avalanche) | Avalanche C-Chain (43114) | 25 live contracts |
+| [vaultfire-arbitrum](https://github.com/Ghostkey316/vaultfire-arbitrum) | Arbitrum One (42161) | 26 live contracts |
+| [vaultfire-polygon](https://github.com/Ghostkey316/vaultfire-polygon) | Polygon PoS (137) | 26 live contracts |
 
-> **67 verified smart contracts across 4 mainnet chains.**
+> **103 verified smart contracts across 4 mainnet chains.**
 
 ### Live Hub
 
 | Repo | What It Is |
 |------|-----------|
-| [theloopbreaker.com](https://github.com/Ghostkey316/theloopbreaker.com) | The Vaultfire Agent Hub — live at [theloopbreaker.com](https://theloopbreaker.com). Agent registration, discovery, trust verification, XTMP messaging, bond creation, and protocol docs. |
+| [theloopbreaker.com](https://github.com/Ghostkey316/theloopbreaker.com) | The Vaultfire Agent Hub — live at [theloopbreaker.com](https://theloopbreaker.com). 24 live API endpoints for agent registration, discovery, trust verification, XMTP messaging, bond management, vouching, performance tracking, insurance, credentials, dispute resolution, x402 payments, and more. |
 
 ### SDK & npm Packages
 
@@ -95,7 +100,7 @@ All published on npm under the `@vaultfire` scope. Install any of them with `npm
 | [vaultfire-sdk](https://github.com/Ghostkey316/vaultfire-sdk) | `@vaultfire/agent-sdk` | Core TypeScript SDK — identity, bonds, trust queries, multi-chain |
 | [vaultfire-a2a](https://github.com/Ghostkey316/vaultfire-a2a) | `@vaultfire/a2a` | Enrich Google A2A Agent Cards with on-chain trust data |
 | [vaultfire-langchain](https://github.com/Ghostkey316/vaultfire-langchain) | `@vaultfire/langchain` | LangChain/LangGraph tools for on-chain trust verification |
-| [vaultfire-vns](https://github.com/Ghostkey316/vaultfire-vns) | `@vaultfire/vns` | Vaultfire Name Service — resolve .vns names on-chain |
+| [vaultfire-vns](https://github.com/Ghostkey316/vaultfire-vns) | `@vaultfire/vns` | Vaultfire Name Service — resolve .vns agent names on-chain |
 | [vaultfire-x402](https://github.com/Ghostkey316/vaultfire-x402) | `@vaultfire/x402` | HTTP 402 trust-gated USDC payments |
 | [vaultfire-xmtp](https://github.com/Ghostkey316/vaultfire-xmtp) | `@vaultfire/xmtp` | Trust-gated encrypted agent messaging via XMTP |
 
@@ -111,6 +116,14 @@ Drop-in trust verification for the frameworks agents actually use.
 | [vaultfire-vercel-ai](https://github.com/Ghostkey316/vaultfire-vercel-ai) | Vercel AI SDK | Trust-gating middleware for Vercel AI apps |
 | [vaultfire-mcp-server](https://github.com/Ghostkey316/vaultfire-mcp-server) | Model Context Protocol | MCP server exposing Vaultfire tools to any MCP client |
 | [vaultfire-langgraph-demo](https://github.com/Ghostkey316/vaultfire-langgraph-demo) | LangGraph | Working demo: trust-gated task delegation |
+
+### Partner Tooling
+
+| Repo | What It Is |
+|------|-----------|
+| [vaultfire-agentkit](https://github.com/Ghostkey316/vaultfire-agentkit) | Coinbase AgentKit integration — on-chain trust for AgentKit-powered agents |
+| [vaultfire-keyprotocol](https://github.com/Ghostkey316/vaultfire-keyprotocol) | Key Protocol integration — trust-verified AI agent key management |
+| [agentkit](https://github.com/Ghostkey316/agentkit) | Fork of Coinbase AgentKit with Vaultfire trust layer added |
 
 ### Reference Agents
 
@@ -134,6 +147,13 @@ Drop-in trust verification for the frameworks agents actually use.
 |------|-----------|
 | [vaultfire-enterprise](https://github.com/Ghostkey316/vaultfire-enterprise) | Bridge enterprise IAM (Okta, Azure AD) to Vaultfire on-chain agent trust |
 | [vaultfire-solana](https://github.com/Ghostkey316/vaultfire-solana) | Vaultfire Protocol — 15 Solana programs (Anchor framework) |
+| [DefiLlama-Adapters](https://github.com/Ghostkey316/DefiLlama-Adapters) | Fork of DefiLlama adapters — Vaultfire TVL tracking integration |
+
+### GitHub Profile
+
+| Repo | What It Is |
+|------|-----------|
+| [Ghostkey316](https://github.com/Ghostkey316/Ghostkey316) | GitHub profile README — Vaultfire overview and ecosystem entry point |
 
 ### Origins
 
@@ -150,12 +170,12 @@ Drop-in trust verification for the frameworks agents actually use.
 ## How It All Connects
 
 ```
-An agent developer's journey:
+An agent's journey:
 
 1. READ     →  vaultfire-whitepaper, vaultfire-docs
 2. EXPLORE  →  vaultfire-explorer, vaultfire-showcase
 3. INSTALL  →  npm install @vaultfire/agent-sdk (or any framework package)
-4. REGISTER →  theloopbreaker.com or direct contract call
+4. REGISTER →  theloopbreaker.com APIs or direct contract call
 5. BOND     →  Create partnership/accountability bonds on-chain
 6. VERIFY   →  Any agent can query trust on-chain across 4 chains
 7. BUILD    →  Use framework integrations (LangChain, CrewAI, OpenAI, Vercel AI, MCP)
