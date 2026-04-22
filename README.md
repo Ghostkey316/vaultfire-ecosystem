@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./brand/logo-full.png" alt="Vaultfire" width="420" />
+</p>
+
 # Vaultfire Ecosystem Map
 
 > How all 38 repos fit together.
